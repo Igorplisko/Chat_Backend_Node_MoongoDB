@@ -1,5 +1,14 @@
-const func = (a: number, b: number) => {
-   return a + b;
-}
+const mongoose = require('mongoose');
+const express = require('express')
+const app = express()
+const port = 3000
 
-console.log(func("1", 2))
+mongoose.connect('mongodb://localhost:27017/chat', { useNewUrlParser: true, useUnifiedTopology: true });
+
+app.get('/', (_: any, res: any) => {
+   res.send('Hello World!')
+})
+
+app.listen(port, () => {
+   console.log(`Example app listening at http://localhost:${port}`)
+})
